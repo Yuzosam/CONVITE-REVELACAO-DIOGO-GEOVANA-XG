@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#eef6fb">
+  <title>Fralda XG · Chá Revelação</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --blue:#9fc7df;--blue-soft:#eaf4fa;--pink:#ee9fb6;--pink-soft:#fceaf0;
+      --taupe:#9e928a;--text:#5f5651;--muted:#918782;--white:#fff;
+      --shadow:0 18px 50px rgba(79,112,135,.13)
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;min-height:100vh;font-family:'Nunito',system-ui,-apple-system,'Segoe UI',sans-serif;
+      color:var(--text);
+      background:linear-gradient(rgba(255,255,255,.62),rgba(255,255,255,.62)),repeating-linear-gradient(90deg,#fff 0 46px,#c9e3f3 46px 92px);
+      -webkit-font-smoothing:antialiased
+    }
+    .shell{width:min(100%,650px);margin:0 auto;padding:18px 14px max(32px,env(safe-area-inset-bottom))}
+    .card{background:rgba(255,255,255,.97);border:1px solid rgba(159,199,223,.45);border-radius:28px;box-shadow:var(--shadow);overflow:hidden}
+    .head{padding:28px 22px 20px;text-align:center;background:linear-gradient(180deg,#fff,#fdfbfc)}
+    .gift-icon{width:70px;height:70px;margin:0 auto 10px;border-radius:50%;display:grid;place-items:center;background:var(--pink-soft);border:1px solid rgba(238,159,182,.35)}
+    .gift-icon svg{width:38px;height:38px;stroke:#759db7}
+    h1{font-family:'Pacifico',cursive;font-weight:400;color:var(--taupe);font-size:clamp(30px,8vw,42px);line-height:1.2;margin:0}
+    .size-pill{display:inline-flex;margin-top:14px;padding:8px 18px;border-radius:999px;background:var(--blue-soft);color:#668ca6;font-weight:800;letter-spacing:.08em;font-size:13px;text-transform:uppercase}
+    .content{padding:4px 22px 26px}
+    .intro{margin:8px auto 20px;max-width:480px;text-align:center;color:var(--muted);font-size:15px;line-height:1.7}
+    .note{padding:18px;border-radius:20px;background:linear-gradient(135deg,#fff8fa,#f7fbfd);border:1px solid rgba(238,159,182,.28);font-size:14px;line-height:1.65;color:#756a65;margin-bottom:22px}
+    .note strong{color:var(--text)}
+    .choices{display:grid;gap:16px}
+    .choice-card{background:#fff;border:1px solid rgba(159,199,223,.45);border-radius:22px;padding:15px;box-shadow:0 10px 26px rgba(79,112,135,.08)}
+    .brand-logo{height:118px;border-radius:17px;background:#fff;border:1px solid rgba(159,199,223,.22);display:grid;place-items:center;padding:12px;margin-bottom:14px;overflow:hidden}
+    .brand-logo img{display:block;max-width:88%;max-height:94px;width:auto;height:auto;object-fit:contain}
+    .brand-info{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;padding:0 2px 12px}
+    .brand-copy{min-width:0}
+    .brand-kicker{display:block;font-size:11px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:#9b8f89;margin-bottom:3px}
+    .brand-name{display:block;font-size:19px;font-weight:800;color:#5f5651;line-height:1.2}
+    .brand-details{display:flex;gap:7px;flex-wrap:wrap;justify-content:flex-end}
+    .detail-pill{display:inline-flex;align-items:center;justify-content:center;padding:6px 9px;border-radius:999px;background:var(--blue-soft);color:#668ca6;font-size:11px;font-weight:800;white-space:nowrap}
+    .detail-pill.units{background:var(--pink-soft);color:#b9667f}
+    .buy-btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:13px 15px;border-radius:15px;background:linear-gradient(135deg,#ef9fb6,#e98ca8);color:#fff;text-decoration:none;font-size:14px;font-weight:800;box-shadow:0 7px 18px rgba(233,140,168,.20);transition:transform .15s ease,opacity .15s ease}
+    .buy-btn:active{transform:scale(.985);opacity:.92}
+    .buy-btn svg{width:16px;height:16px;flex:none}
+    .package-list{display:grid;gap:9px}
+    .package-label{display:block;margin:0 2px 8px;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#9b8f89}
+    .buy-btn.secondary{background:linear-gradient(135deg,#87b7d3,#6fa4c4);box-shadow:0 7px 18px rgba(111,164,196,.18)}
+    .choice-separator{height:1px;background:linear-gradient(90deg,transparent,rgba(159,199,223,.4),transparent);margin:2px 4px 16px}
+    .choices-title{text-align:center;margin:2px 0 13px;font-size:12px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:#928680}
+    .helper{margin:18px 4px 4px;text-align:center;color:#a09792;font-size:12px;line-height:1.55}
+    .back{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;margin-top:18px;padding:14px 18px;border-radius:17px;border:1px solid rgba(159,199,223,.55);background:rgba(255,255,255,.92);color:#6e7f89;text-decoration:none;font-size:14px;font-weight:800}
+    .footer{text-align:center;color:#a09792;font-size:12px;padding:18px 8px 0}
+    @media(min-width:560px){.shell{padding-top:28px}.head{padding-top:34px}.content{padding-left:34px;padding-right:34px;padding-bottom:32px}}
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <section class="card">
+      <header class="head">
+        <div class="gift-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 9h18v12H3z"/><path d="M2 5h20v4H2z"/><path d="M12 5v16"/><path d="M12 5C10.5 2.6 8.7 2 7.4 2 5.9 2 5 3 5.2 4.1 5.5 5.5 7.4 6 12 5Z"/><path d="M12 5c1.5-2.4 3.3-3 4.6-3 1.5 0 2.4 1 2.2 2.1-.3 1.4-2.2 1.9-6.8.9Z"/>
+          </svg>
+        </div>
+        <h1>Fraldinha para o bebê</h1>
+        <div class="size-pill">Tamanho XG</div>
+      </header>
+
+      <div class="content">
+        <p class="intro">Para facilitar na hora de escolher, separamos as duas marcas que recomendamos para o nosso bebê.</p>
+
+        <div class="note">
+          Pensando no <strong>conforto e na segurança do nosso bebê</strong>, além de um bom <strong>custo-benefício</strong>, recomendamos apenas <strong>Mili e Pampers</strong> para a compra. Os links abaixo são só uma facilidade para quem quiser se programar. <strong>Qualquer pacote será recebido com muito carinho</strong> — e ficaremos extremamente felizes se você preferir presentear com kits ou pacotes com uma quantidade maior de unidades. 💛
+        </div>
+        <p class="choices-title">Escolha uma das opções recomendadas</p>
+        <div class="choices">
+          <article class="choice-card">
+            <div class="brand-logo">
+              <img src="logo-mili.webp" alt="Mili Love &amp; Care Premium" loading="lazy">
+            </div>
+            <div class="brand-info">
+              <div class="brand-copy">
+                <span class="brand-kicker">Marca recomendada</span>
+                <span class="brand-name">Mili Love &amp; Care</span>
+              </div>
+              <div class="brand-details">
+                <span class="detail-pill">Tamanho XG</span>
+              </div>
+            </div>
+            <span class="package-label">Opções de pacote</span>
+            <div class="package-list">
+              <a class="buy-btn" href="https://meli.la/28kyUvr" target="_blank" rel="noopener noreferrer">
+                Mili XG · 22 unidades
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+              </a>
+              <a class="buy-btn secondary" href="https://meli.la/26SngSm" target="_blank" rel="noopener noreferrer">
+                Mili XG · 44 unidades
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+              </a>
+              <a class="buy-btn" href="https://meli.la/1nCRe3T" target="_blank" rel="noopener noreferrer">
+                Mili XG · 66 unidades
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="choice-card">
+            <div class="brand-logo">
+              <img src="logo-pampers.webp" alt="Pampers" loading="lazy">
+            </div>
+            <div class="brand-info">
+              <div class="brand-copy">
+                <span class="brand-kicker">Marca recomendada</span>
+                <span class="brand-name">Pampers</span>
+              </div>
+              <div class="brand-details">
+                <span class="detail-pill">Tamanho XG</span>
+              </div>
+            </div>
+            <span class="package-label">Opções de pacote</span>
+            <div class="package-list">
+              <a class="buy-btn" href="https://meli.la/1aq8kpF" target="_blank" rel="noopener noreferrer">
+                Pampers XG · 34 unidades
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+              </a>
+              <a class="buy-btn secondary" href="https://meli.la/1tdLhQJ" target="_blank" rel="noopener noreferrer">
+                Pampers XG · 58 unidades
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+              </a>
+              <a class="buy-btn" href="https://meli.la/1qGeC5t" target="_blank" rel="noopener noreferrer">
+                Pampers XG · 92 unidades
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+              </a>
+            </div>
+          </article>
+        </div>
+
+        <p class="helper">Os links são apenas sugestões para facilitar a compra. Você não precisa comprar exatamente pelo anúncio indicado.</p>
+        <a class="back" href="index.html">← Voltar para a confirmação</a>
+      </div>
+    </section>
+    <div class="footer">Diogo &amp; Geovana · Chá Revelação</div>
+  </main>
+</body>
+</html>
